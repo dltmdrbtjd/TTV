@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GlobalThemeProvider from '../src/styles/GlobalThemeProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GlobalThemeProvider>
+      <App />
+    </GlobalThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 reportWebVitals();

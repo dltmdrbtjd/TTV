@@ -3,13 +3,13 @@ import * as S from './style';
 
 export type Props = {
   children?: any;
-  ref?: any;
   className?: string;
+  onClick?: any;
 };
 
-function Grid({ children, className, ref }: Props) {
+function Grid({ children, className, onClick }: Props) {
   return (
-    <S.Grid className={className} ref={ref}>
+    <S.Grid className={className} onClick={onClick}>
       {children}
     </S.Grid>
   );

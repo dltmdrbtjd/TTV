@@ -4,10 +4,15 @@ import * as S from './style';
 export type Props = {
   children?: any;
   className?: string;
+  onClick?: any;
 };
 
-function Span({ children, className }: Props) {
-  return <S.Span className={className}>{children}</S.Span>;
+function Span({ children, className, onClick }: Props) {
+  return (
+    <S.Span className={className} onClick={onClick}>
+      {children}
+    </S.Span>
+  );
 }
 
 export default Span;

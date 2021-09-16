@@ -5,11 +5,12 @@ export type Props = {
   children?: any;
   className?: string;
   onClick?: any;
+  disabled?: any;
 };
 
-function Button({ children, className, onClick }: Props) {
+function Button({ children, className, onClick, disabled }: Props) {
   return (
-    <S.Button onClick={onClick} className={className}>
+    <S.Button onClick={onClick} className={className} disabled={disabled}>
       {children}
     </S.Button>
   );

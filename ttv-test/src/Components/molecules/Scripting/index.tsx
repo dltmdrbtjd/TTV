@@ -1,19 +1,43 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import * as S from './style';
+import TTVHeader from '../TTVHeader';
+import { matching } from '../../../Modules/Encoding';
 
 function Scripting() {
+  const dispatch = useDispatch();
+  const [text, setText] = React.useState<string>('');
+
+  let textArr: string[] = [];
+
+  function TextScript(text: string) {
+    const Arr = text.split(' ');
+    const setText = new Set(Arr);
+    let mySet = Array.from(setText).filter((item) => item !== '');
+    textArr = [...mySet];
+    // textArr.push(...mySet);
+    dispatch(matching({ list: textArr, Matching: true }));
+  }
+
   return (
     <>
-      <S.TitleHeader>
-        <S.TitleNum>1</S.TitleNum>
-        <S.TitleText>Scripting</S.TitleText>
-      </S.TitleHeader>
+      <TTVHeader num="1" name="Scripting" />
       <S.ScriptingWrap>
-        <S.TextArea placeholder="Put your script here 500~5,000 letters." />
-        <S.Letters>0 letters</S.Letters>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <S.ConvertBtn>Convert</S.ConvertBtn>
-        </div>
+        <S.TextArea
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+          placeholder="Put your script here 500~5,000 letters."
+        />
+        <S.Letters>{text.length} letters</S.Letters>
+        <S.BtnBox>
+          <S.ConvertBtn
+            onClick={() => TextScript(text)}
+            disabled={!!(text.length < 500 || text.length > 5000)}
+          >
+            Convert
+          </S.ConvertBtn>
+        </S.BtnBox>
       </S.ScriptingWrap>
     </>
   );

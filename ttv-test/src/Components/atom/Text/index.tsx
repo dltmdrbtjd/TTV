@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './style';
 
 export type Props = {
-  children: any;
+  children?: any;
   className?: string;
 };
 

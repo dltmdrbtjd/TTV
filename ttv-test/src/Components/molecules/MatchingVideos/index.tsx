@@ -21,7 +21,7 @@ function MatchingVideos() {
   function MatchCheck(item: string) {
     const check = MatchList.findIndex((i) => i === item);
     if (check === -1) {
-      MatchList = [...MatchList, item];
+      MatchList.push(item);
     } else if (check !== -1) {
       MatchList.splice(check, 1);
     }

@@ -14,8 +14,7 @@ function Scripting() {
     const Arr = text.split(' ');
     const setText = new Set(Arr);
     let mySet = Array.from(setText).filter((item) => item !== '');
-    textArr = [...mySet];
-    // textArr.push(...mySet);
+    textArr.push(...mySet);
     dispatch(matching({ list: textArr, Matching: true }));
   }
 
